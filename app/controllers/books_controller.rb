@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   end
 
   def index
+    
   end
 
   def show
