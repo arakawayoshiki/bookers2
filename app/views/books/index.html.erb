@@ -2,18 +2,22 @@
  <div class="row">
   <div class="col-md-3">
    <h2>User info</h2>
-   
+
    <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-  
-    <% if @user.id == current_user.id %>
+
+
     <table class="table">
      <tbody>
       <th>name</th><th><%= @user.name %></th>
       <th>introduction</th><th><%= @user.introduction %></th>
      </tbody>
     </table>
-    <% end %>
-    
+    <% if @user.id == current_user.id %>
+    　<p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+ 　　 <% end %>
+
+
+
     <%= form_with model:@book, local:true do |f| %>
     　<h2>New book</h2>
     　<h4>Title</h4>
@@ -22,7 +26,28 @@
       <%= f.text_area :body %>
       <%= f.submit 'Create Book' %>
     <% end %>
-   
+
    </div>
+   <div class="col-md-8 offset-md-1">
+    <h2>Books</h2>
+    <table class="table table-hover table-inverse">
+     <thead>
+      <tr>
+       <th></th>
+       <th>Title</th>
+       <th>Opinion</th>
+       <th colspan="3"></th>
+      </tr>
+     </thead>
+     
+     <tbody>
+      <% @books.each do |book| %>
+       <tr>
+        <td>
+         
+        </td>
+       </tr>
+      <% end %>
+     </tbody>
  </div>
 </div>
